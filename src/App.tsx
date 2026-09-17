@@ -106,51 +106,12 @@ const App = () => {
   ]);
   const todoTasks = tasks.filter((task) => task.status === "todo");
   const doingTasks = tasks.filter((task) => task.status === "doing");
-  const doneTasts = tasks.filter((task) => task.status === "done");
+  const doneTasks = tasks.filter((task) => task.status === "done");
 
   return (
     <>
       <Header />
       <main className={styles.main}>
-        <Column title="ToDo">
-          {todoTasks.map((task) => (
-            <TaskCard
-              key={task.id}
-              title={task.title}
-              id={task.id}
-              description={task.description}
-              assignee={task.assignee}
-              category={task.category}
-              priority={task.priority}
-            />
-          ))}
-        </Column>
-        <Column title="Doing">
-          {doingTasks.map((task) => (
-            <TaskCard
-              key={task.id}
-              title={task.title}
-              id={task.id}
-              description={task.description}
-              assignee={task.assignee}
-              category={task.category}
-              priority={task.priority}
-            />
-          ))}
-        </Column>
-        <Column title="Done">
-          {doneTasts.map((task) => (
-            <TaskCard
-              key={task.id}
-              title={task.title}
-              id={task.id}
-              description={task.description}
-              assignee={task.assignee}
-              category={task.category}
-              priority={task.priority}
-            />
-          ))}
-        </Column>
         <TaskForm onAddTask={addTask} />
       </main>
 
