@@ -103,9 +103,9 @@ const App = () => {
       status: "done",
     },
   ]);
-  const todoTasks = tasks.filter((task) => task.status === "todo");
-  const doingTasks = tasks.filter((task) => task.status === "doing");
-  const doneTasks = tasks.filter((task) => task.status === "done");
+  // const todoTasks = tasks.filter((task) => task.status === "todo");
+  // const doingTasks = tasks.filter((task) => task.status === "doing");
+  // const doneTasks = tasks.filter((task) => task.status === "done");
 
   return (
     <>
