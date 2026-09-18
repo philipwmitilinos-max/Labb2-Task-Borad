@@ -1,11 +1,10 @@
 import Header from "./componenets/Header";
 import Footer from "./componenets/Footer";
-import TaskCard from "./componenets/TaskCard";
-import Column from "./componenets/Cloumn";
 import styles from "./module/TaskBoard.module.css";
 import type { NewTask, Task } from "./types/Task.ts";
 import TaskForm from "./componenets/TaskForm.tsx";
 import { useState } from "react";
+import TaskBoard from "./componenets/TaskBoard.tsx";
 
 // const tasks: Task[] = [];
 
@@ -112,6 +111,7 @@ const App = () => {
     <>
       <Header />
       <main className={styles.main}>
+        <TaskBoard tasks={tasks} />
         <TaskForm onAddTask={addTask} />
       </main>
 
