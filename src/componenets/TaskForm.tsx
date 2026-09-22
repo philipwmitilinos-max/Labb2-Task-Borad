@@ -11,7 +11,7 @@ const TaskForm = ({ onAddTask }: TaskFormProps) => {
   const [assignee, setAssignee] = useState("");
   const [category, setCategory] = useState("");
   const [priority, setPriority] = useState("high");
-  const status: TaskStatus ="todo";
+  const [status, setStatus] = useState("todo");
 
   const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -23,19 +23,28 @@ const TaskForm = ({ onAddTask }: TaskFormProps) => {
       priorityTemp = "low";
     }
     console.log("Submitting: " + priority);
+
+    let statusTemp: TaskStatus = "todo";
+    if (status === "doing") {
+      statusTemp = "doing";
+    }
+    if (status === "done") {
+      statusTemp = "done";
+    }
     onAddTask({
       title,
       description,
       assignee,
       category,
       priority: priorityTemp,
-      status,
+      status: statusTemp,
     });
     setTitle("");
     setDescription("");
     setAssignee("");
     setCategory("");
     setPriority("high");
+    setStatus("todo");
   };
 
   return (
@@ -87,6 +96,18 @@ const TaskForm = ({ onAddTask }: TaskFormProps) => {
           <option value="high">Hög</option>
           <option value="medium">Medium</option>
           <option value="low">Låg</option>
+        </select>
+        <label htmlFor="status">Status</label>
+        <select
+          name="status"
+          id="status"
+          value={status}
+          required
+          onChange={(event) => setStatus(event.target.value)}
+        >
+          <option value="todo">ToDo</option>
+          <option value="doing">Doing</option>
+          <option value="done">Done</option>
         </select>
         <button type="submit">Skapa Task</button>
       </form>
